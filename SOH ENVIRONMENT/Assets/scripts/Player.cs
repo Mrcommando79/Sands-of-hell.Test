@@ -51,6 +51,8 @@ public class Player : MonoBehaviour
         groundLayer = LayerMask.GetMask("GROUND");
         IntializeWeapons();
         railCharger.maxValue = railTimer;
+        healthBar.maxValue = health.GetHealth();
+        healthBar.value = healthBar.maxValue;
     }
 
     // Update is called once per frame

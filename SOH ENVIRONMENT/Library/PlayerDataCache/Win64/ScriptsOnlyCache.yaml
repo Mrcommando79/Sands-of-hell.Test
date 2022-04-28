@@ -20,8 +20,6 @@ ScriptsOnlyBuild:
     - Cinemachine.CinemachineVirtualCamera
     NavMeshComponents.dll:
     - UnityEngine.AI.NavMeshSurface
-    NavMeshComponentsEditor.dll:
-    - UnityEditor.AI.NavMeshAssetManager
     Unity.InputSystem.dll:
     - UnityEngine.InputSystem.InputActionAsset
     - UnityEngine.InputSystem.InputActionReference
@@ -104,73 +102,73 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1442}
+      Script: {instanceID: 1468}
     - Class: 114
-      Script: {instanceID: 1496}
+      Script: {instanceID: 1470}
     - Class: 114
-      Script: {instanceID: 1500}
+      Script: {instanceID: 1526}
     - Class: 114
-      Script: {instanceID: 1564}
+      Script: {instanceID: 1590}
     - Class: 114
-      Script: {instanceID: 1612}
+      Script: {instanceID: 1638}
     - Class: 114
-      Script: {instanceID: 1720}
+      Script: {instanceID: 1744}
     - Class: 114
-      Script: {instanceID: 1828}
+      Script: {instanceID: 1852}
     - Class: 114
-      Script: {instanceID: 1968}
+      Script: {instanceID: 1992}
     - Class: 114
-      Script: {instanceID: 2084}
+      Script: {instanceID: 2108}
     - Class: 114
-      Script: {instanceID: 2178}
+      Script: {instanceID: 2202}
     - Class: 114
-      Script: {instanceID: 2190}
+      Script: {instanceID: 2214}
     - Class: 114
-      Script: {instanceID: 2370}
+      Script: {instanceID: 2384}
     - Class: 114
-      Script: {instanceID: 2492}
+      Script: {instanceID: 2396}
     - Class: 114
-      Script: {instanceID: 2548}
+      Script: {instanceID: 2518}
     - Class: 114
-      Script: {instanceID: 2588}
+      Script: {instanceID: 2574}
     - Class: 114
       Script: {instanceID: 2614}
     - Class: 114
-      Script: {instanceID: 2682}
+      Script: {instanceID: 2640}
     - Class: 114
-      Script: {instanceID: 2754}
+      Script: {instanceID: 2708}
     - Class: 114
-      Script: {instanceID: 2806}
+      Script: {instanceID: 2780}
     - Class: 114
       Script: {instanceID: 2832}
     - Class: 114
-      Script: {instanceID: 2960}
+      Script: {instanceID: 2858}
     - Class: 114
-      Script: {instanceID: 3324}
+      Script: {instanceID: 2986}
     - Class: 114
-      Script: {instanceID: 3406}
+      Script: {instanceID: 3350}
     - Class: 114
-      Script: {instanceID: 3638}
+      Script: {instanceID: 3432}
     - Class: 114
-      Script: {instanceID: 3684}
+      Script: {instanceID: 3664}
     - Class: 114
-      Script: {instanceID: 3974}
+      Script: {instanceID: 3710}
     - Class: 114
-      Script: {instanceID: 4086}
+      Script: {instanceID: 4000}
     - Class: 114
-      Script: {instanceID: 4204}
+      Script: {instanceID: 4112}
     - Class: 114
-      Script: {instanceID: 4448}
+      Script: {instanceID: 4230}
     - Class: 114
-      Script: {instanceID: 4618}
+      Script: {instanceID: 4474}
     - Class: 114
-      Script: {instanceID: 4964}
+      Script: {instanceID: 4644}
     - Class: 114
-      Script: {instanceID: 5382}
+      Script: {instanceID: 4884}
     - Class: 114
-      Script: {instanceID: 924548}
+      Script: {instanceID: 4992}
     - Class: 114
-      Script: {instanceID: 3684754}
+      Script: {instanceID: 5410}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -214,6 +212,12 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
+      Hash: a6e561615949734e9f12f9b61661f43e
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Image
+  - hash:
+      serializedVersion: 2
       Hash: 5ab533713adae59372fb3e10a585c186
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -224,12 +228,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.InputSystem.dll
     namespaceName: UnityEngine.InputSystem.UI
     className: BaseInputOverride
-  - hash:
-      serializedVersion: 2
-      Hash: a6e561615949734e9f12f9b61661f43e
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Image
   - hash:
       serializedVersion: 2
       Hash: c24a778d9aa393e11e54bff320ca63de
@@ -440,6 +438,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner
     className: PlaymodeTestsController
+  - hash:
+      serializedVersion: 2
+      Hash: 408dfa4ff113107196af67a87a82010a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Director
   - hash:
       serializedVersion: 2
       Hash: 295831406da5907d41f58d84acd55d8d
@@ -1120,6 +1124,12 @@ ScriptsOnlyBuild:
     className: SpawnPrefabOnKeyDown
   - hash:
       serializedVersion: 2
+      Hash: 3ec8f05815d866dbf5b337c1c5968ac2
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BossBehavior
+  - hash:
+      serializedVersion: 2
       Hash: 426e5bd616852254b77531cd1a8e29b6
     assemblyName: Unity.InputSystem.dll
     namespaceName: UnityEngine.InputSystem.OnScreen
@@ -1256,19 +1266,7 @@ ScriptsOnlyBuild:
     assemblyName: NavMeshComponents.dll
     namespaceName: UnityEngine.AI
     className: NavMeshLink
-  - hash:
-      serializedVersion: 2
-      Hash: 3ec8f05815d866dbf5b337c1c5968ac2
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: BossBehavior
-  - hash:
-      serializedVersion: 2
-      Hash: 408dfa4ff113107196af67a87a82010a
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Director
   platform: 19
   scenePathNames:
   - Assets/Scenes/Environment.unity
-  playerPath: C:/Users/Jared B/Desktop/SOH ENVIRONMENT/Build2/SOH ENVIRONMENT.exe
+  playerPath: C:/Users/Jared B/Desktop/SOH ENVIRONMENT/Build3/SOH ENVIRONMENT.exe

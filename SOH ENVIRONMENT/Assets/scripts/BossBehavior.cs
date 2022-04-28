@@ -9,6 +9,7 @@ public class BossBehavior : MonoBehaviour
     bool alreadyAttacked;
     bool alreadyTeleported;
     bool deployAxes;
+    bool isAlive;
 
     Health health;
     [SerializeField] Slider healthBar;
@@ -34,6 +35,7 @@ public class BossBehavior : MonoBehaviour
         alreadyAttacked = false;
         alreadyTeleported = false;
         deployAxes = true;
+        isAlive = true;
         IntializeHealthBar();
         IntializeTeleportPoints();
     }
@@ -41,16 +43,22 @@ public class BossBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(health.GetHealth() > 125)
+        if(health.GetHealth() > 125 && isAlive)
         {
             AttackPlayer();
         }
-        else
+        else if(isAlive)
         {
             EnrageAttack();
         }
 
-        healthBar.value = health.GetHealth();
+        CheckDeath();
+
+        if(isAlive)
+        {
+            healthBar.value = health.GetHealth();
+        }
+
     }
 
     void IntializeHealthBar()
@@ -73,7 +81,7 @@ public class BossBehavior : MonoBehaviour
 
     private void AttackPlayer()
     {
-        transform.LookAt(player);
+        gameObject.transform.LookAt(player);
 
         if(!alreadyAttacked)
         {
@@ -88,7 +96,7 @@ public class BossBehavior : MonoBehaviour
 
     void EnrageAttack()
     {
-        transform.LookAt(player);
+        gameObject.transform.LookAt(player);
 
         if(deployAxes)
         {
@@ -134,9 +142,14 @@ public class BossBehavior : MonoBehaviour
 
     void CheckDeath()
     {
-        if(health.CheckDeath())
+        if(health.CheckDeath() && isAlive)
         {
-            Destroy(gameObject);
+            Destroy(healthBar.gameObject);
+            isAlive = false;
+            transform.position = intialPosition;
+            axeHolder.SetActive(false);
+            animator.SetTrigger("IsDead");
+            Destroy(gameObject, 5f);            
         }
     }
 }
