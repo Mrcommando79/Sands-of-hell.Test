@@ -1,10 +1,16 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - Bullet
+    - BossBehavior
+    - DealDamage
+    - DealDamageRadius
+    - Director
     - EnemyBehavior
     - EnemyPew
     - FreeZ
+    - Health
+    - Interactable
+    - KeyHolder
     - Player
     Cinemachine.dll:
     - Cinemachine.CinemachineBrain
@@ -18,10 +24,12 @@ ScriptsOnlyBuild:
     - UnityEditor.AI.NavMeshAssetManager
     Unity.InputSystem.dll:
     - UnityEngine.InputSystem.InputActionAsset
+    - UnityEngine.InputSystem.InputActionReference
     - UnityEngine.InputSystem.InputSettings
     - UnityEngine.InputSystem.InputSystemObject
     - UnityEngine.InputSystem.PlayerInput
     - UnityEngine.InputSystem.RemoteInputPlayerConnection
+    - UnityEngine.InputSystem.UI.InputSystemUIInputModule
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
@@ -29,6 +37,7 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
+    - TMPro.TextMeshProUGUI
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
@@ -42,13 +51,16 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
     UnityEngine.UI.dll:
+    - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
     - UnityEngine.UI.RawImage
     - UnityEngine.UI.Slider
+    - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
-    Assets/Desert/Scenes/Environment.unity:
+    Assets/Scenes/Environment.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -81,6 +93,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
+    - Class: 90
+      Script: {instanceID: 0}
     - Class: 91
       Script: {instanceID: 0}
     - Class: 95
@@ -90,54 +104,76 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1494}
+      Script: {instanceID: 1442}
     - Class: 114
-      Script: {instanceID: 1498}
+      Script: {instanceID: 1496}
     - Class: 114
-      Script: {instanceID: 1708}
+      Script: {instanceID: 1500}
     - Class: 114
-      Script: {instanceID: 1814}
+      Script: {instanceID: 1564}
     - Class: 114
-      Script: {instanceID: 2158}
+      Script: {instanceID: 1612}
     - Class: 114
-      Script: {instanceID: 2312}
+      Script: {instanceID: 1720}
     - Class: 114
-      Script: {instanceID: 2508}
+      Script: {instanceID: 1828}
+    - Class: 114
+      Script: {instanceID: 1968}
+    - Class: 114
+      Script: {instanceID: 2084}
+    - Class: 114
+      Script: {instanceID: 2178}
+    - Class: 114
+      Script: {instanceID: 2190}
+    - Class: 114
+      Script: {instanceID: 2370}
+    - Class: 114
+      Script: {instanceID: 2492}
     - Class: 114
       Script: {instanceID: 2548}
     - Class: 114
-      Script: {instanceID: 2574}
+      Script: {instanceID: 2588}
     - Class: 114
-      Script: {instanceID: 2642}
+      Script: {instanceID: 2614}
     - Class: 114
-      Script: {instanceID: 2792}
+      Script: {instanceID: 2682}
     - Class: 114
-      Script: {instanceID: 2914}
+      Script: {instanceID: 2754}
     - Class: 114
-      Script: {instanceID: 3914}
+      Script: {instanceID: 2806}
     - Class: 114
-      Script: {instanceID: 4022}
+      Script: {instanceID: 2832}
     - Class: 114
-      Script: {instanceID: 4138}
+      Script: {instanceID: 2960}
     - Class: 114
-      Script: {instanceID: 4542}
+      Script: {instanceID: 3324}
     - Class: 114
-      Script: {instanceID: 4882}
+      Script: {instanceID: 3406}
     - Class: 114
-      Script: {instanceID: 5296}
+      Script: {instanceID: 3638}
     - Class: 114
-      Script: {instanceID: 5360}
+      Script: {instanceID: 3684}
     - Class: 114
-      Script: {instanceID: 344746}
+      Script: {instanceID: 3974}
     - Class: 114
-      Script: {instanceID: 387124}
+      Script: {instanceID: 4086}
     - Class: 114
-      Script: {instanceID: 1054276}
+      Script: {instanceID: 4204}
+    - Class: 114
+      Script: {instanceID: 4448}
+    - Class: 114
+      Script: {instanceID: 4618}
+    - Class: 114
+      Script: {instanceID: 4964}
+    - Class: 114
+      Script: {instanceID: 5382}
+    - Class: 114
+      Script: {instanceID: 924548}
+    - Class: 114
+      Script: {instanceID: 3684754}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
-      Script: {instanceID: 0}
-    - Class: 134
       Script: {instanceID: 0}
     - Class: 135
       Script: {instanceID: 0}
@@ -148,6 +184,10 @@ ScriptsOnlyBuild:
     - Class: 195
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
       Script: {instanceID: 0}
     - Class: 205
       Script: {instanceID: 0}
@@ -166,6 +206,12 @@ ScriptsOnlyBuild:
     - Class: 850595691
       Script: {instanceID: 0}
   scriptHashData:
+  - hash:
+      serializedVersion: 2
+      Hash: c1d728126ff1918728036c59106d32b2
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: RawImage
   - hash:
       serializedVersion: 2
       Hash: 5ab533713adae59372fb3e10a585c186
@@ -208,6 +254,24 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_InputField
+  - hash:
+      serializedVersion: 2
+      Hash: 3b8038c3392a12b7521cc1a169adf79c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DealDamageRadius
+  - hash:
+      serializedVersion: 2
+      Hash: 8d722e874bde92513d295f5d6bb98e69
+    assemblyName: NavMeshComponentsExamples.dll
+    namespaceName: 
+    className: RandomInstancing
+  - hash:
+      serializedVersion: 2
+      Hash: 7c0ce9f1ad91655c6e6ed05e7ed71b08
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: KeyHolder
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -294,10 +358,34 @@ ScriptsOnlyBuild:
     className: CinemachineCameraOffset
   - hash:
       serializedVersion: 2
+      Hash: 7299a528424874bcf6b5736b5305ac37
+    assemblyName: NavMeshComponents.dll
+    namespaceName: UnityEngine.AI
+    className: NavMeshModifierVolume
+  - hash:
+      serializedVersion: 2
+      Hash: 63c95c3144d2457e479c73c0849fe733
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DealDamage
+  - hash:
+      serializedVersion: 2
+      Hash: 758b5d99bd0554ee74733433b3433b11
+    assemblyName: NavMeshComponentsExamples.dll
+    namespaceName: 
+    className: DungeonManager
+  - hash:
+      serializedVersion: 2
       Hash: 6225eb0973ab0af667bc5f9d1b1b18de
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineCollider
+  - hash:
+      serializedVersion: 2
+      Hash: 8d4458b476a9a4dd8df843a849fcfffa
+    assemblyName: NavMeshComponents.dll
+    namespaceName: UnityEngine.AI
+    className: NavMeshSurface
   - hash:
       serializedVersion: 2
       Hash: 15882a52798c275361cd0a3ada984ec5
@@ -318,10 +406,22 @@ ScriptsOnlyBuild:
     className: GroupTrack
   - hash:
       serializedVersion: 2
+      Hash: 8e3e2513a7d7957c4e07586da2a95e24
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyBehavior
+  - hash:
+      serializedVersion: 2
       Hash: 800c50acba124432abb4cf0d47202e06
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_StyleSheet
+  - hash:
+      serializedVersion: 2
+      Hash: 1f53cbc473f31cd3401926bb2a2275f8
+    assemblyName: NavMeshComponentsExamples.dll
+    namespaceName: 
+    className: AgentLinkMover
   - hash:
       serializedVersion: 2
       Hash: 699619b86d9359741a4f58540298c80b
@@ -342,16 +442,16 @@ ScriptsOnlyBuild:
     className: PlaymodeTestsController
   - hash:
       serializedVersion: 2
-      Hash: c1d728126ff1918728036c59106d32b2
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: RawImage
-  - hash:
-      serializedVersion: 2
       Hash: 295831406da5907d41f58d84acd55d8d
     assemblyName: Unity.InputSystem.dll
     namespaceName: UnityEngine.InputSystem.Editor
     className: InputActionEditorWindow
+  - hash:
+      serializedVersion: 2
+      Hash: 95831e4bc9bfeb0230cf1cd20b31c325
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Interactable
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -370,6 +470,12 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineOrbitalTransposer
+  - hash:
+      serializedVersion: 2
+      Hash: c7a1cfbcd815f35b6700d8538ef4094e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Health
   - hash:
       serializedVersion: 2
       Hash: 62824bb9557c7e987502f2fbd2a26819
@@ -457,6 +563,12 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: NavMeshComponentsExamples.dll
+    namespaceName: 
+    className: ClickToMove
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineHardLookAt
@@ -472,6 +584,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: GraphicRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: f2d6f78254ca93fbc5b1ada07c8dcb72
+    assemblyName: NavMeshComponentsExamples.dll
+    namespaceName: 
+    className: FreeCam
   - hash:
       serializedVersion: 2
       Hash: f40fedccd4adbc76605bea6d67537e4b
@@ -546,6 +664,12 @@ ScriptsOnlyBuild:
     className: MarkerTrack
   - hash:
       serializedVersion: 2
+      Hash: 2b19be13f00df62e6d4d4f5539bcad51
+    assemblyName: NavMeshComponents.dll
+    namespaceName: UnityEngine.AI
+    className: NavMeshModifier
+  - hash:
+      serializedVersion: 2
       Hash: 23066ceca838af0cf02e00e3cf5155c1
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
@@ -556,6 +680,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools
     className: BeforeAfterTestCommandState
+  - hash:
+      serializedVersion: 2
+      Hash: c05d535bfcb6e005cb05d18d0df0e685
+    assemblyName: NavMeshComponentsExamples.dll
+    namespaceName: 
+    className: RandomWalk
   - hash:
       serializedVersion: 2
       Hash: 0fd6822f6177297bd0eb4d83cc7a9030
@@ -592,6 +722,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.InputSystem.dll
     namespaceName: UnityEngine.InputSystem.Editor
     className: PlayerInputEditor
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyPew
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -762,6 +898,18 @@ ScriptsOnlyBuild:
     className: InputSettings
   - hash:
       serializedVersion: 2
+      Hash: 8a4ecc6114cf107a280fc0a4e6b393f4
+    assemblyName: NavMeshComponentsExamples.dll
+    namespaceName: 
+    className: MeshTool
+  - hash:
+      serializedVersion: 2
+      Hash: af194f19ec5528d7d0aee06309df5c6b
+    assemblyName: NavMeshComponentsExamples.dll
+    namespaceName: 
+    className: Oscillator
+  - hash:
+      serializedVersion: 2
       Hash: d79be48f820686024dd0d9e080d7733b
     assemblyName: Unity.InputSystem.dll
     namespaceName: UnityEngine.InputSystem
@@ -792,7 +940,7 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: cadf6ea7eaab0038dd824c4f864eade6
+      Hash: f61f877aa93b3a5eb790521b6306155f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -882,6 +1030,12 @@ ScriptsOnlyBuild:
     className: CinemachineTouchInputMapper
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: NavMeshComponentsExamples.dll
+    namespaceName: 
+    className: NavMeshSourceTag
+  - hash:
+      serializedVersion: 2
       Hash: 0fb27be807aa299702f28ad0bcad1f46
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -924,6 +1078,12 @@ ScriptsOnlyBuild:
     className: CinemachineHardLockToTarget
   - hash:
       serializedVersion: 2
+      Hash: 0e57a341531c2c0a72d6b366fd018e5b
+    assemblyName: NavMeshComponentsExamples.dll
+    namespaceName: 
+    className: NavMeshPrefabInstance
+  - hash:
+      serializedVersion: 2
       Hash: af56f77a30c1a2da1680c736a6f5c6e8
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
@@ -954,10 +1114,22 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
+      Hash: 142ac660d938c77d06a40116647495c6
+    assemblyName: NavMeshComponentsExamples.dll
+    namespaceName: 
+    className: SpawnPrefabOnKeyDown
+  - hash:
+      serializedVersion: 2
       Hash: 426e5bd616852254b77531cd1a8e29b6
     assemblyName: Unity.InputSystem.dll
     namespaceName: UnityEngine.InputSystem.OnScreen
     className: OnScreenStick
+  - hash:
+      serializedVersion: 2
+      Hash: 74abb616a7b65b377f11c8a31f2ddea6
+    assemblyName: NavMeshComponentsExamples.dll
+    namespaceName: 
+    className: LocalNavMeshBuilder
   - hash:
       serializedVersion: 2
       Hash: fd68d84f33fad85aac38f2739c0ee270
@@ -1008,6 +1180,18 @@ ScriptsOnlyBuild:
     className: CinemachineBasicMultiChannelPerlin
   - hash:
       serializedVersion: 2
+      Hash: 1f1a3b63bcb87e63110a26427883b8e5
+    assemblyName: NavMeshComponentsExamples.dll
+    namespaceName: 
+    className: EnableIffSleeping
+  - hash:
+      serializedVersion: 2
+      Hash: 96f46e17d3c33197e8fe519a485e8550
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LightingTools_Offer
+  - hash:
+      serializedVersion: 2
       Hash: 8220b46879dc5e37db1b940c938f5744
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -1030,6 +1214,12 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineComposer
+  - hash:
+      serializedVersion: 2
+      Hash: de0e373f9e7fb0fa48caeb13c2e57300
+    assemblyName: NavMeshComponentsExamples.dll
+    namespaceName: 
+    className: DestroyOnTrigger
   - hash:
       serializedVersion: 2
       Hash: 7ab0e790220bdca831fdd886b339039d
@@ -1062,131 +1252,23 @@ ScriptsOnlyBuild:
     className: CinemachineBlendListCamera
   - hash:
       serializedVersion: 2
-      Hash: efb608382f7ca08f8f6c668f7b2742a4
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Bullet
-  - hash:
-      serializedVersion: 2
-      Hash: 7da9c844df580165a9506375b942c20e
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: EnemyBehavior
-  - hash:
-      serializedVersion: 2
-      Hash: 8d722e874bde92513d295f5d6bb98e69
-    assemblyName: NavMeshComponentsExamples.dll
-    namespaceName: 
-    className: RandomInstancing
-  - hash:
-      serializedVersion: 2
-      Hash: 7299a528424874bcf6b5736b5305ac37
-    assemblyName: NavMeshComponents.dll
-    namespaceName: UnityEngine.AI
-    className: NavMeshModifierVolume
-  - hash:
-      serializedVersion: 2
-      Hash: f2d6f78254ca93fbc5b1ada07c8dcb72
-    assemblyName: NavMeshComponentsExamples.dll
-    namespaceName: 
-    className: FreeCam
-  - hash:
-      serializedVersion: 2
-      Hash: 758b5d99bd0554ee74733433b3433b11
-    assemblyName: NavMeshComponentsExamples.dll
-    namespaceName: 
-    className: DungeonManager
-  - hash:
-      serializedVersion: 2
-      Hash: 1f1a3b63bcb87e63110a26427883b8e5
-    assemblyName: NavMeshComponentsExamples.dll
-    namespaceName: 
-    className: EnableIffSleeping
-  - hash:
-      serializedVersion: 2
-      Hash: 2b19be13f00df62e6d4d4f5539bcad51
-    assemblyName: NavMeshComponents.dll
-    namespaceName: UnityEngine.AI
-    className: NavMeshModifier
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: NavMeshComponentsExamples.dll
-    namespaceName: 
-    className: NavMeshSourceTag
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: NavMeshComponentsExamples.dll
-    namespaceName: 
-    className: ClickToMove
-  - hash:
-      serializedVersion: 2
       Hash: c8c672fee8a258266e51b55a210b8083
     assemblyName: NavMeshComponents.dll
     namespaceName: UnityEngine.AI
     className: NavMeshLink
   - hash:
       serializedVersion: 2
-      Hash: c05d535bfcb6e005cb05d18d0df0e685
-    assemblyName: NavMeshComponentsExamples.dll
-    namespaceName: 
-    className: RandomWalk
-  - hash:
-      serializedVersion: 2
-      Hash: 142ac660d938c77d06a40116647495c6
-    assemblyName: NavMeshComponentsExamples.dll
-    namespaceName: 
-    className: SpawnPrefabOnKeyDown
-  - hash:
-      serializedVersion: 2
-      Hash: 1f53cbc473f31cd3401926bb2a2275f8
-    assemblyName: NavMeshComponentsExamples.dll
-    namespaceName: 
-    className: AgentLinkMover
-  - hash:
-      serializedVersion: 2
-      Hash: 8a4ecc6114cf107a280fc0a4e6b393f4
-    assemblyName: NavMeshComponentsExamples.dll
-    namespaceName: 
-    className: MeshTool
-  - hash:
-      serializedVersion: 2
-      Hash: af194f19ec5528d7d0aee06309df5c6b
-    assemblyName: NavMeshComponentsExamples.dll
-    namespaceName: 
-    className: Oscillator
-  - hash:
-      serializedVersion: 2
-      Hash: 8d4458b476a9a4dd8df843a849fcfffa
-    assemblyName: NavMeshComponents.dll
-    namespaceName: UnityEngine.AI
-    className: NavMeshSurface
-  - hash:
-      serializedVersion: 2
-      Hash: 0e57a341531c2c0a72d6b366fd018e5b
-    assemblyName: NavMeshComponentsExamples.dll
-    namespaceName: 
-    className: NavMeshPrefabInstance
-  - hash:
-      serializedVersion: 2
-      Hash: 74abb616a7b65b377f11c8a31f2ddea6
-    assemblyName: NavMeshComponentsExamples.dll
-    namespaceName: 
-    className: LocalNavMeshBuilder
-  - hash:
-      serializedVersion: 2
-      Hash: de0e373f9e7fb0fa48caeb13c2e57300
-    assemblyName: NavMeshComponentsExamples.dll
-    namespaceName: 
-    className: DestroyOnTrigger
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 3ec8f05815d866dbf5b337c1c5968ac2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: EnemyPew
+    className: BossBehavior
+  - hash:
+      serializedVersion: 2
+      Hash: 408dfa4ff113107196af67a87a82010a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Director
   platform: 19
   scenePathNames:
-  - Assets/Desert/Scenes/Environment.unity
-  playerPath: C:/Users/Jared B/Desktop/SOH ENVIRONMENT/Build1/SOH ENVIRONMENT.exe
+  - Assets/Scenes/Environment.unity
+  playerPath: C:/Users/Jared B/Desktop/SOH ENVIRONMENT/Build2/SOH ENVIRONMENT.exe

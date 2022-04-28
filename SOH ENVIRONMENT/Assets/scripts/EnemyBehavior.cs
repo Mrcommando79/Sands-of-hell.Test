@@ -15,12 +15,13 @@ public class EnemyBehavior : MonoBehaviour
     public Vector3 walkPoint;
     bool walkPointSet;
     public float walkPointRange;
-    public bool followPlayer = true;
+    [SerializeField] bool usePathfinding = true;
 
     //Attacking
     public float timeBetweenAttacks;
     bool alreadyAttacked;
-    public GameObject projectile;
+    [SerializeField] GameObject projectile;
+    
 
     //States
     public float sightRange;
@@ -28,12 +29,16 @@ public class EnemyBehavior : MonoBehaviour
     public bool playerInSightRange;
     public bool playerInAttackRange;
 
+    //Stats
+    Health health;
 
 
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        health = GetComponent<Health>();
+        alreadyAttacked = false;
     }
 
     private void Update() 
@@ -42,18 +47,20 @@ public class EnemyBehavior : MonoBehaviour
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        if(!playerInSightRange)
+        if(!playerInSightRange && usePathfinding)
         {
             Patrolling();
         }
-        else if(!playerInAttackRange && followPlayer)
+        else if(!playerInAttackRange && usePathfinding)
         {
             ChasePlayer();
         }
-        else
+        else if(playerInAttackRange)
         {
             AttackPlayer();
         }
+
+        CheckDeath();
     }
 
 
@@ -83,12 +90,17 @@ public class EnemyBehavior : MonoBehaviour
         float randomX = Random.Range(-walkPointRange, walkPointRange);
         
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-
-
+        
         if(Physics.Raycast(walkPoint, - transform.up, 2f, whatIsGround))
         {
             walkPointSet = true;
         }
+    }
+
+    IEnumerator FindNewPoint()
+    {
+        yield return new WaitForSeconds(5f);
+        walkPointSet = false;
     }
 
     private void ChasePlayer()
@@ -103,10 +115,9 @@ public class EnemyBehavior : MonoBehaviour
 
         if(!alreadyAttacked)
         {
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            Rigidbody rb =  Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * 16f, ForceMode.Impulse);
             rb.AddForce(transform.up* 2f, ForceMode.Impulse);
-
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
@@ -118,5 +129,12 @@ public class EnemyBehavior : MonoBehaviour
         alreadyAttacked = false;
     }
 
+    void CheckDeath()
+    {
+        if(health.CheckDeath())
+        {
+            Destroy(gameObject);
+        }
+    }
 
 }

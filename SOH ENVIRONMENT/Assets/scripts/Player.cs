@@ -11,23 +11,30 @@ public class Player : MonoBehaviour
     Vector2 moveInput;
     float lookInputX;
     float lookInputY;
-    Camera playerView;
-
-    int currentWeapon = 1;
+    BoxCollider axeHitBox;
+    LayerMask groundLayer;
+    int currentWeapon = 0;
+    Director dir;
+    
+    [SerializeField] Camera playerView;
     [SerializeField] float moveSpeed = 1000f;
     [SerializeField] float jumpHeight = 20f;
     [SerializeField] float senseX = 17f;
     [SerializeField] float senseY = 17f;
     [SerializeField] GameObject cameraHolder;
     [SerializeField] Transform bulletSpawnPoint;
+    [SerializeField] Transform railBulletSpawnPoint;
     [SerializeField] GameObject bullet;
     [SerializeField] float gravityScale = 100f;
+    [SerializeField] List<GameObject> weapons;
+    [SerializeField] ParticleSystem railParticle;
 
-    [SerializeField] GameObject gun;
-    [SerializeField] GameObject axe;
-
-    int playerHealth = 10;
+    Health health;
     [SerializeField] Slider healthBar;
+
+    [SerializeField] float railTimer = 1f;
+    [SerializeField] Slider railCharger;
+    bool ableToFire = true;
     
     bool inventoryOpen;
     [SerializeField] GameObject Inventory;
@@ -36,13 +43,14 @@ public class Player : MonoBehaviour
     void Start()
     {
         player = GetComponent<Rigidbody>();
-        playerView = Camera.main;
+        health = GetComponent<Health>();
+        dir = FindObjectOfType<Director>();
         Cursor.lockState = CursorLockMode.Locked;
-        gun.SetActive(true);
-        axe.SetActive(false);
-       
         inventoryOpen = false;
         Inventory.SetActive(inventoryOpen);
+        groundLayer = LayerMask.GetMask("GROUND");
+        IntializeWeapons();
+        railCharger.maxValue = railTimer;
     }
 
     // Update is called once per frame
@@ -52,7 +60,11 @@ public class Player : MonoBehaviour
         MoveCamera();
         limitRotation();
         CheckDeath();
-        healthBar.value = playerHealth;
+        healthBar.value = health.GetHealth();
+        if(!ableToFire)
+        {
+            UpdateRailCharger();
+        }
     }
 
     void FixedUpdate() 
@@ -61,7 +73,8 @@ public class Player : MonoBehaviour
     }
 
     void Run()
-    {   Vector3 playerMovement = new Vector3(moveInput.x * moveSpeed, 0, moveInput.y * moveSpeed);
+    {  
+        Vector3 playerMovement = new Vector3(moveInput.x * moveSpeed, 0, moveInput.y * moveSpeed);
         player.AddRelativeForce(playerMovement * Time.deltaTime, ForceMode.Impulse);
     }
 
@@ -74,7 +87,7 @@ public class Player : MonoBehaviour
 
     void OnJump(InputValue value)
     {
-        if(value.isPressed)
+        if(value.isPressed && Physics.Raycast(transform.position, Vector3.down, 1f))
         {
             player.velocity += new Vector3 (0f, jumpHeight, 0f);
         }
@@ -84,7 +97,7 @@ public class Player : MonoBehaviour
     void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
-        Debug.Log(moveInput);
+        //Debug.Log(moveInput);
     }
 
     void OnMouseX(InputValue value)
@@ -99,59 +112,109 @@ public class Player : MonoBehaviour
         //Debug.Log(lookInputY);
     }
 
+    void OnInteract(InputValue value)
+    {
+        RaycastHit hit;
+
+        if(Physics.Raycast(playerView.transform.position, playerView.transform.forward, out hit, 2f))
+        {
+            Interactable item =  hit.transform.GetComponent<Interactable>();
+            if(item != null && item.isChest)
+            {
+                item.OpenChest();
+            }
+            else if (item != null && item.isBossWall)
+            {
+                item.OpenBossWall();
+            }
+
+            Debug.Log(hit);
+        }
+    }
+
+    void IntializeWeapons()
+    {
+        weapons[1].SetActive(true);
+        for(int i = 1; i < weapons.Count; i++)
+        {
+            weapons[i].SetActive(false);
+            if(weapons[i].GetComponent<BoxCollider>() != null)
+            {
+                axeHitBox = weapons[i].GetComponent<BoxCollider>();
+                axeHitBox.enabled = false;
+            }
+        }
+    }
+
     void OnFire(InputValue value)
     {
-        if(currentWeapon == 1)
+        RaycastHit hit;    
+
+        if(currentWeapon == 0 && ableToFire)
+        {
+           if(Physics.Raycast(playerView.transform.position, playerView.transform.forward, out hit, 100f))
+           {
+                Health enemy = hit.transform.GetComponent<Health>();
+                if(enemy != null && enemy.tag == "ENEMY")
+                {
+                    enemy.TakeDamage(10);
+                }
+                ParticleSystem hitEffect = Instantiate(railParticle, hit.point, Quaternion.identity);
+                Destroy(hitEffect.gameObject, 2f);
+           }
+            StartCoroutine(RailCooldown());
+        }
+        else if(currentWeapon == 1)
         {
             Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-            //Instantiate(bullet);
+
         }
-        else
+        else if(currentWeapon == 2)
         {
             AxeAttack();
         }
         //Debug.Log(value);
     }
 
-    void AxeAttack()
+    IEnumerator RailCooldown()
     {
-        Animator anim = axe.GetComponent<Animator>();
-        anim.SetTrigger("isSwing");
+        ableToFire = false;
+        railCharger.value = 0;
+        yield return new WaitForSeconds(railTimer);
+        ableToFire = true;
     }
 
-    IEnumerable AxeCooldown()
+    void UpdateRailCharger()
     {
-        yield return new WaitForSeconds(1);
+        railCharger.value += Time.deltaTime;
+    }
 
+    void AxeAttack()
+    {
+        axeHitBox.enabled = true;
+        Animator anim = weapons[2].GetComponent<Animator>();
+        anim.SetTrigger("isSwing");
+        StartCoroutine(DisableCollider());
+    }
+
+    IEnumerator DisableCollider()
+    {
+        yield return new WaitForSeconds(1f);
+        axeHitBox.enabled = false;
     }
 
     void OnSwapWeapon(InputValue value)
     {
-        Debug.Log(value);
-        Debug.Log(currentWeapon);
-        if(currentWeapon == 1)
+        weapons[currentWeapon].SetActive(false);
+        if(currentWeapon < 2)
         {
-            currentWeapon = 2;
+            currentWeapon++;
+            weapons[currentWeapon].SetActive(true);
         }
         else
         {
-            currentWeapon = 1;
-        }
-
-        switchWeapon();
-    }
-
-    void switchWeapon()
-    {
-        if(currentWeapon == 1)
-        {
-            gun.SetActive(true);
-            axe.SetActive(false);
-        }
-        else
-        {
-            gun.SetActive(false);
-            axe.SetActive(true);
+            currentWeapon = 0;
+            weapons[currentWeapon].SetActive(true);
         }
     }
 
@@ -179,18 +242,22 @@ public class Player : MonoBehaviour
        cameraHolder.transform.rotation = Quaternion.Euler(headEulerAngles);
     }
 
-
-    public void DamagePlayer()
-    {
-        playerHealth--;
-    }
-
     void CheckDeath()
     {
-        if(playerHealth < 1)
+        if(health.CheckDeath())
         {
-            Scene scene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.name);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
+
+    void OnPause(InputValue value)
+    {
+        if(value.isPressed && !dir.isPaused)
+        {
+            Debug.Log("Test");
+            dir.Pause();
+        }
+    }
+
+
 }

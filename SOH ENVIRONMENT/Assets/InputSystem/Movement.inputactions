@@ -51,18 +51,36 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SwapWeapon",
+                    "name": "Inventory",
                     "type": "Button",
-                    "id": "024f500b-d750-45bc-a3c2-9ccd3da06aac",
+                    "id": "5f7a651f-5327-4904-91fe-e022e4b557be",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Inventory",
+                    "name": "SwapWeapon",
                     "type": "Button",
-                    "id": "5f7a651f-5327-4904-91fe-e022e4b557be",
+                    "id": "218f1dd4-be15-4302-a203-bb7aa8be4fa7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "55bddc37-b4c5-44c3-8464-645b69b4d694",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "1852bea4-a6fb-456f-aecd-11dbb7d8c89e",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -292,7 +310,18 @@
                 },
                 {
                     "name": "",
-                    "id": "2a4b36ed-4164-4ef5-a036-8422128dc0fc",
+                    "id": "13a88e83-85c3-4d8c-8d24-58038ba10f02",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1e27fbc7-e873-4985-b754-f15726679d7b",
                     "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
@@ -303,12 +332,23 @@
                 },
                 {
                     "name": "",
-                    "id": "13a88e83-85c3-4d8c-8d24-58038ba10f02",
-                    "path": "<Keyboard>/i",
+                    "id": "1cda86de-b9ad-4491-af7c-501d3f78f3c6",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Inventory",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fe5f495d-363b-4195-a205-c404f41a1650",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

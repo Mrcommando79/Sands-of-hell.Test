@@ -36,12 +36,12 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Tests\Editor\NavMeshSurfaceInPrefabTests.cs" />
-     <Compile Include="Assets\Tests\Editor\NavMeshSurfaceInPrefabVariantTests.cs" />
-     <Compile Include="Assets\Tests\Editor\PrefabSavingUtil.cs" />
-     <Compile Include="Assets\Tests\Editor\NavMeshModifierVolumeInPrefabTests.cs" />
-     <Compile Include="Assets\Tests\Editor\PrefabStageAutoSavingUtil.cs" />
-     <None Include="Assets\Tests\Editor\NavMeshComponentsTestsEditmode.asmdef" />
+     <Compile Include="Assets\NavMeshComponents-master\Assets\Tests\Editor\NavMeshModifierVolumeInPrefabTests.cs" />
+     <Compile Include="Assets\NavMeshComponents-master\Assets\Tests\Editor\NavMeshSurfaceInPrefabTests.cs" />
+     <Compile Include="Assets\NavMeshComponents-master\Assets\Tests\Editor\PrefabSavingUtil.cs" />
+     <Compile Include="Assets\NavMeshComponents-master\Assets\Tests\Editor\NavMeshSurfaceInPrefabVariantTests.cs" />
+     <Compile Include="Assets\NavMeshComponents-master\Assets\Tests\Editor\PrefabStageAutoSavingUtil.cs" />
+     <None Include="Assets\NavMeshComponents-master\Assets\Tests\Editor\NavMeshComponentsTestsEditmode.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.31f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

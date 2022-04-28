@@ -14,7 +14,8 @@ public class EnemyPew : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            FindObjectOfType<Player>().DamagePlayer();
+            Health playerHealth = other.GetComponent<Health>();
+            playerHealth.TakeDamage(1);
         }
 
         Destroy(gameObject);
