@@ -22,7 +22,7 @@ public class DealDamage : MonoBehaviour
 
     void OnTriggerEnter(Collider other) 
     {
-        if(other.tag == "ENEMY" && !isProjectile)
+        if((other.tag == "ENEMY" || other.tag == "Player") && !isProjectile)
         {
             other.GetComponent<Health>().TakeDamage(10);
         }

@@ -14,19 +14,21 @@ public class DealDamageRadius : MonoBehaviour
 
     void Explode()
     {
-        Collider[] hitCollider = Physics.OverlapSphere(transform.position, 5f);
-        explosion.Play();
+        Collider[] hitCollider = Physics.OverlapSphere(transform.position, 3f);
+        ParticleSystem instance = Instantiate(explosion, transform.position, Quaternion.identity);
+        instance.Play();
+        Destroy(instance.gameObject, 0.5f);
 
         foreach(Collider hit in hitCollider)
         {
-            Health instance = hit.GetComponent<Health>();
-            if(instance != null)
+            Health damage = hit.GetComponent<Health>();
+            if(damage != null)
             {
-                instance.TakeDamage(2);
+                damage.TakeDamage(2);
             }
         }
 
-        Destroy(gameObject, 0.3f);
+        Destroy(gameObject);
     }
 
     void OnCollisionEnter(Collision other) 

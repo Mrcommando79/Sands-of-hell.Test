@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Director : MonoBehaviour
 {
@@ -9,6 +10,14 @@ public class Director : MonoBehaviour
 
     void Start()
     {
+        pauseMenu.gameObject.SetActive(false);
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        isPaused = false;
+        Time.timeScale = 1;
         pauseMenu.gameObject.SetActive(false);
     }
 
