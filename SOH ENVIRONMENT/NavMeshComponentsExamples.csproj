@@ -36,21 +36,21 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Examples\Scripts\RandomInstancing.cs" />
-     <Compile Include="Assets\Examples\Scripts\FreeCam.cs" />
-     <Compile Include="Assets\Examples\Scripts\DungeonManager.cs" />
-     <Compile Include="Assets\Examples\Scripts\EnableIffSleeping.cs" />
-     <Compile Include="Assets\Examples\Scripts\NavMeshSourceTag.cs" />
-     <Compile Include="Assets\Examples\Scripts\ClickToMove.cs" />
-     <Compile Include="Assets\Examples\Scripts\RandomWalk.cs" />
-     <Compile Include="Assets\Examples\Scripts\SpawnPrefabOnKeyDown.cs" />
-     <Compile Include="Assets\Examples\Scripts\AgentLinkMover.cs" />
-     <Compile Include="Assets\Examples\Scripts\MeshTool.cs" />
-     <Compile Include="Assets\Examples\Scripts\Oscillator.cs" />
-     <Compile Include="Assets\Examples\Scripts\NavMeshPrefabInstance.cs" />
-     <Compile Include="Assets\Examples\Scripts\LocalNavMeshBuilder.cs" />
-     <Compile Include="Assets\Examples\Scripts\DestroyOnTrigger.cs" />
-     <None Include="Assets\Examples\NavMeshComponentsExamples.asmdef" />
+     <Compile Include="Assets\NavMeshComponents-master\Assets\Examples\Scripts\RandomInstancing.cs" />
+     <Compile Include="Assets\NavMeshComponents-master\Assets\Examples\Scripts\DungeonManager.cs" />
+     <Compile Include="Assets\NavMeshComponents-master\Assets\Examples\Scripts\AgentLinkMover.cs" />
+     <Compile Include="Assets\NavMeshComponents-master\Assets\Examples\Scripts\ClickToMove.cs" />
+     <Compile Include="Assets\NavMeshComponents-master\Assets\Examples\Scripts\FreeCam.cs" />
+     <Compile Include="Assets\NavMeshComponents-master\Assets\Examples\Scripts\RandomWalk.cs" />
+     <Compile Include="Assets\NavMeshComponents-master\Assets\Examples\Scripts\MeshTool.cs" />
+     <Compile Include="Assets\NavMeshComponents-master\Assets\Examples\Scripts\Oscillator.cs" />
+     <Compile Include="Assets\NavMeshComponents-master\Assets\Examples\Scripts\NavMeshSourceTag.cs" />
+     <Compile Include="Assets\NavMeshComponents-master\Assets\Examples\Scripts\NavMeshPrefabInstance.cs" />
+     <Compile Include="Assets\NavMeshComponents-master\Assets\Examples\Scripts\SpawnPrefabOnKeyDown.cs" />
+     <Compile Include="Assets\NavMeshComponents-master\Assets\Examples\Scripts\LocalNavMeshBuilder.cs" />
+     <Compile Include="Assets\NavMeshComponents-master\Assets\Examples\Scripts\EnableIffSleeping.cs" />
+     <Compile Include="Assets\NavMeshComponents-master\Assets\Examples\Scripts\DestroyOnTrigger.cs" />
+     <None Include="Assets\NavMeshComponents-master\Assets\Examples\NavMeshComponentsExamples.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.31f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

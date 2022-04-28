@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - ENEMY
+  - Interactable
+  - UI
+  - BossTeleport
   layers:
   - Default
   - TransparentFX
@@ -12,13 +15,13 @@ TagManager:
   - 
   - Water
   - UI
+  - 
+  - 
   - GROUND
-  - PLAYER
-  - BULLET
   - ENEMY
-  - PEW
-  - 
-  - 
+  - PLAYER
+  - ENEMYBULLET
+  - BULLET
   - 
   - 
   - 

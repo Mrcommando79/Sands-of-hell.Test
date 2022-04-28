@@ -36,12 +36,12 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Tests\NavMeshSurfaceAgentTests.cs" />
-     <Compile Include="Assets\Tests\NavMeshSurfaceModifierVolumeTests.cs" />
-     <Compile Include="Assets\Tests\NavMeshSurfaceTests.cs" />
-     <Compile Include="Assets\Tests\NavMeshSurfaceLinkTests.cs" />
-     <Compile Include="Assets\Tests\NavMeshSurfaceModifierTests.cs" />
-     <None Include="Assets\Tests\NavMeshComponentsTestsPlaymode.asmdef" />
+     <Compile Include="Assets\NavMeshComponents-master\Assets\Tests\NavMeshSurfaceTests.cs" />
+     <Compile Include="Assets\NavMeshComponents-master\Assets\Tests\NavMeshSurfaceModifierVolumeTests.cs" />
+     <Compile Include="Assets\NavMeshComponents-master\Assets\Tests\NavMeshSurfaceModifierTests.cs" />
+     <Compile Include="Assets\NavMeshComponents-master\Assets\Tests\NavMeshSurfaceLinkTests.cs" />
+     <Compile Include="Assets\NavMeshComponents-master\Assets\Tests\NavMeshSurfaceAgentTests.cs" />
+     <None Include="Assets\NavMeshComponents-master\Assets\Tests\NavMeshComponentsTestsPlaymode.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.31f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

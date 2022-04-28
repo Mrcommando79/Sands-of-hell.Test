@@ -36,11 +36,18 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\scripts\FreeZ.cs" />
-     <Compile Include="Assets\scripts\Player.cs" />
-     <Compile Include="Assets\scripts\Bullet.cs" />
-     <Compile Include="Assets\scripts\EnemyBehavior.cs" />
-     <Compile Include="Assets\scripts\EnemyPew.cs" />
+     <Compile Include="Assets\Scripts\DealDamageRadius.cs" />
+     <Compile Include="Assets\Scripts\KeyHolder.cs" />
+     <Compile Include="Assets\Scripts\DealDamage.cs" />
+     <Compile Include="Assets\Scripts\EnemyBehavior.cs" />
+     <Compile Include="Assets\Scripts\Interactable.cs" />
+     <Compile Include="Assets\Scripts\Health.cs" />
+     <Compile Include="Assets\Scripts\FreeZ.cs" />
+     <Compile Include="Assets\Scripts\EnemyPew.cs" />
+     <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Models\WhiteCity\Textures\Other\Offer\LightingTools_Offer.cs" />
+     <Compile Include="Assets\Scripts\BossBehavior.cs" />
+     <Compile Include="Assets\Scripts\Director.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
@@ -56,10 +63,13 @@
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+     <None Include="Assets\Models\Low Poly Graveyard\Materials\vertexcolorsstandard.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+     <None Include="Assets\NavMeshComponents-master\ProjectSettings\ProjectVersion.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+     <None Include="Assets\Models\FuelPump3D\Documentation\Guide.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
     <Reference Include="UnityEngine">
@@ -670,14 +680,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="NavMeshComponentsExamples.csproj">
-      <Project>{8f8425a6-6892-18d3-b32e-0427f3fc8d19}</Project>
-      <Name>NavMeshComponentsExamples</Name>
-    </ProjectReference>
-    <ProjectReference Include="NavMeshComponents.csproj">
-      <Project>{86867dd3-9bc2-3ad3-20eb-0404ec3e21b3}</Project>
-      <Name>NavMeshComponents</Name>
-    </ProjectReference>
     <ProjectReference Include="NavMeshComponentsEditor.csproj">
       <Project>{bdb7d1ff-c27a-3f81-3263-645583804735}</Project>
       <Name>NavMeshComponentsEditor</Name>
@@ -685,6 +687,14 @@
     <ProjectReference Include="NavMeshComponentsExamplesEditor.csproj">
       <Project>{9940e7c6-eb59-c7bd-7202-91105865e91a}</Project>
       <Name>NavMeshComponentsExamplesEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponentsExamples.csproj">
+      <Project>{8f8425a6-6892-18d3-b32e-0427f3fc8d19}</Project>
+      <Name>NavMeshComponentsExamples</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponents.csproj">
+      <Project>{86867dd3-9bc2-3ad3-20eb-0404ec3e21b3}</Project>
+      <Name>NavMeshComponents</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

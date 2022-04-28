@@ -36,8 +36,8 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Examples\Editor\NavMeshPrefabInstanceEditor.cs" />
-     <None Include="Assets\Examples\Editor\NavMeshComponentsExamplesEditor.asmdef" />
+     <Compile Include="Assets\NavMeshComponents-master\Assets\Examples\Editor\NavMeshPrefabInstanceEditor.cs" />
+     <None Include="Assets\NavMeshComponents-master\Assets\Examples\Editor\NavMeshComponentsExamplesEditor.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.31f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
